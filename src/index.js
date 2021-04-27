@@ -1,15 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { render } from "react-dom";
+import Items from "./Items";
 
-function App() {
-	const [showMsg, setShowMsg] = useState(false);
-
-	return (
-		<>
-			<button onClick={() => setShowMsg(true)}>Click to see a message!</button>
-			{showMsg && <div>Items will be displayed here...</div>}
-		</>
-	);
-}
-
-render(<App />, document.getElementById("root"));
+render(<Items />, document.getElementById("root"));

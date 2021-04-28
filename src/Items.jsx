@@ -16,6 +16,20 @@ const Items = () => {
 		setColumn("");
 	};
 
+	const removeItem = (item) => {
+		if (item.column === "column1") {
+			let _firstColumnItems = [];
+			_firstColumnItems = [...firstColumnItems];
+			_firstColumnItems = _firstColumnItems.filter((a) => a.id !== item.id);
+			setFirstColumnItems(_firstColumnItems);
+		} else if (item.column === "column2") {
+			let _secondColumnItems = [];
+			_secondColumnItems = [...secondColumnItems];
+			_secondColumnItems = _secondColumnItems.filter((a) => a.id !== item.id);
+			setSecondColumnItems(_secondColumnItems);
+		} else return;
+	};
+
 	useEffect(() => {
 		if (item.column === "column1") {
 			setFirstColumnItems([...firstColumnItems, item]);
@@ -50,13 +64,19 @@ const Items = () => {
 					<div>
 						<h4>COLUMN1</h4>
 						{firstColumnItems.map((c) => (
-							<div>{c.name}</div>
+							<div key={c.id}>
+								<span>{c.name}</span>
+								<button onClick={() => removeItem(c)}>&times;</button>
+							</div>
 						))}
 					</div>
 					<div>
 						<h4>COLUMN2</h4>
 						{secondColumnItems.map((c) => (
-							<div>{c.name}</div>
+							<div key={c.id}>
+								<span>{c.name}</span>
+								<button onClick={() => removeItem(c)}>&times;</button>
+							</div>
 						))}
 					</div>
 				</div>

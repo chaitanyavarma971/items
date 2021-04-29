@@ -1,11 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap");
 
-$font: 'Merriweather', serif;
-$background-color: #78808D;
+$title-font: "Merriweather", serif;
+$background-color: #78808d;
 $text-color: #fff;
 
 body {
-	font-family: $font;
+	font-family: Arial, sans-serif;
 	background-color: $background-color;
 	color: $text-color;
+}
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.title {
+	font-family: $title-font;
+	font-size: 3rem;
+	font-style: italic;
+}
+
+.description {
+	max-width: 25em;
+	line-height: 1.4;
+	color: #91d8d2;
+	font-weight: 700;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+.header {
+	text-align: center;
+	grid-column: 1 / -1;
+}
+
+.columns {
+	grid-column: 1 / span 2;
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+input[type="text"],
+select {
+	padding: 12px 20px;
+	margin: 8px 0;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #98a0ab;
+	color: #fff;
+	border: 2px solid #fff;
+	&:focus {
+		outline: 0;
+	}
+	@include placeholder {
+		color: #fff;
+	}
+}
+
+.add-item {
+	padding: 10px 20px;
+	box-sizing: border-box;
+	background-color: transparent;
+	color: #fff;
+	width: 100%;
+	border: 2px solid #fff;
+}
+
+.close {
+	padding: 5px;
+	box-sizing: border-box;
+	background-color: transparent;
 }

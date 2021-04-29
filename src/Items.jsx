@@ -39,28 +39,52 @@ const Items = () => {
 	}, [item]);
 
 	return (
-		<>
-			<h1>Marvelous!</h1>
-			<div>
-				<h3>ADD AN ITEM</h3>
-				<form onSubmit={handleSave}>
-					<input
-						type="text"
-						name="item"
-						value={itemName}
-						placeholder="Enter Item"
-						onChange={({ target }) => setItemName(target.value)}
-					/>
-					<select
-						value={column}
-						onChange={({ target }) => setColumn(target.value)}>
-						<option value="">CHOOSE COLUMN</option>
-						<option value="column1">COLUMN1</option>
-						<option value="column2">COLUMN2</option>
-					</select>
-					<button type="submit">ADD ITEM</button>
-				</form>
-				<div>
+		<div className="container">
+			<h1 className="title">Marvelous!</h1>
+			<p className="description">
+				Lorem ipsum is simply dummy text of the printing and typesetting
+				industry. Lorem ipsum has been the industry's standard dummy text ever
+				since.
+			</p>
+			<div className="grid-container">
+				<div className="header">
+					<h4>ADD AN ITEM</h4>
+				</div>
+
+				<div className="forms">
+					<form onSubmit={handleSave}>
+						<div>
+							<input
+								type="text"
+								name="item"
+								value={itemName}
+								placeholder="ENTER ITEM"
+								onChange={({ target }) => setItemName(target.value)}
+							/>
+						</div>
+						<div>
+							<select
+								value={column}
+								onChange={({ target }) => setColumn(target.value)}>
+								<option value="">CHOOSE COLUMN</option>
+								<option value="column1">COLUMN1</option>
+								<option value="column2">COLUMN2</option>
+							</select>
+						</div>
+						<button className="add-item" type="submit">
+							ADD ITEM
+						</button>
+					</form>
+					<div>
+						<label>
+							<small>SEARCH AN ITEM</small>
+							<br />
+							<input type="text" name="search" placeholder="SEARCH" />
+						</label>
+					</div>
+				</div>
+
+				<div className="columns">
 					<div>
 						<h4>COLUMN1</h4>
 						{firstColumnItems.map((c) => (
@@ -81,7 +105,7 @@ const Items = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
